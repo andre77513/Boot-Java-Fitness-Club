@@ -17,14 +17,39 @@ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
                 <constraints nullable="false" />
             </column>
             <column name="cpf" type="VARCHAR(11)">
-                <constraints nullable="false"  unique="true"/>
+                <constraints nullable="false" unique="true" />
             </column>
             <column name="telephone" type="VARCHAR(15)">
-                <constraints nullable="false" unique="true"/>
+                <constraints nullable="false" unique="true" />
             </column>
         </createTable>
 
         <addAutoIncrement tableName="student" columnName="id" columnDataType="INT" incrementBy="1" startWith="1" />
+
+    </changeSet>
+
+    <changeSet id="2" author="andre">
+        <preConditions onFail="MARK_RAN" onFailMessage="Já existe a tabela training_sheet!">
+            <not>
+                <tableExists tableName="trainin_gsheet" />
+            </not>
+        </preConditions>
+
+        <createTable tableName="training_sheet">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_training_sheet" />
+            </column>
+            <column name="type" type="VARCHAR(5)">
+                <constraints nullable="false" />
+            </column>
+            <column name="comments" type="VARCHAR(255)"></column>
+
+            <column name="student_id" type="INT">
+                <constraints nullable="false" foreignKeyName="fk_training_sheet_student" referencedTableName="student_id" referencedColumnNames="id"/>
+            </column>
+        </createTable>
+
+        <addAutoIncrement tableName="training_sheet" columnName="id" columnDataType="INT" incrementBy="1" startWith="1" />
 
     </changeSet>
 

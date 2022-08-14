@@ -11,6 +11,8 @@ public class StudentService extends CrudService<Student, Long> {
     @Override
     protected Student entityUpdate(Student recovered, Student entity) {
         recovered.setName(entity.getName());
+        recovered.setCpf(entity.getCpf());
+        recovered.setTelephone(entity.getTelephone());
         return recovered;
     }
 
