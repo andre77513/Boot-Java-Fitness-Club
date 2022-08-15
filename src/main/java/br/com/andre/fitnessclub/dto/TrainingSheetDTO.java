@@ -2,6 +2,7 @@ package br.com.andre.fitnessclub.dto;
 
 import java.io.Serializable;
 
+import br.com.andre.fitnessclub.entity.Student;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,5 +15,6 @@ public class TrainingSheetDTO implements Serializable {
     private Long id;
     private String type;
     private String comments;
+    private Student student;
 
 }

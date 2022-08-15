@@ -6,6 +6,6 @@ import br.com.andre.fitnessclub.core.crud.CrudRepository;
 import br.com.andre.fitnessclub.entity.TrainingSheet;
 
 @Repository
-public interface TrainingSheetRepository extends CrudRepository<TrainingSheet, Long>{
-    
+public interface TrainingSheetRepository extends CrudRepository<TrainingSheet, Long> {
+
 }

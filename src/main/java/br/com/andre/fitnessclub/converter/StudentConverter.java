@@ -18,6 +18,6 @@ public class StudentConverter implements CrudConverter<Student, StudentDTO> {
     @Override
     public Student dtoForEntity(StudentDTO dto) {
 
-        return new Student(dto.getId(), dto.getName(), dto.getCpf(), dto.getTelephone());
+        return new Student(dto.getId(), dto.getName(), dto.getCpf(), dto.getTelephone(), null);
     }
 }

@@ -1,14 +1,14 @@
 package br.com.andre.fitnessclub.entity;
 
 import java.io.Serializable;
-// import java.util.ArrayList;
-// import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-//import javax.persistence.OneToMany;
+import javax.persistence.OneToMany;
 
 import br.com.andre.fitnessclub.core.crud.CrudEntity;
 import lombok.AllArgsConstructor;
@@ -31,7 +31,7 @@ public class Student implements CrudEntity<Long>, Serializable{
 
     private String telephone;
 
-    // @OneToMany(mappedBy = "student")
-    // private List<TrainingSheet> trainingSheets = new ArrayList<>();
+    @OneToMany(mappedBy = "student")
+    private List<TrainingSheet> trainingSheets = new ArrayList<>();
     
 }

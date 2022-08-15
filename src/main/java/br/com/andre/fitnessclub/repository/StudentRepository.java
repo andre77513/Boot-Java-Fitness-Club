@@ -10,11 +10,11 @@ import br.com.andre.fitnessclub.entity.Student;
 @Repository
 public interface StudentRepository extends CrudRepository<Student, Long> {
 
-    Object findByName = null;
-
     @Query(value = "select s from Student s where s.name = :name")
     Student consultByName(@Param("name") String name);
 
-    Student findByName(String name);
+    @Query(value = "select * from Student s where s.name like '%Cardoso' ",nativeQuery = true)
+    Student findByNameNative();
 
+    Student findByName(String name);
 }

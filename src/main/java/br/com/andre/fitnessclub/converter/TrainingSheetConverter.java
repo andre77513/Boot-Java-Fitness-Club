@@ -12,7 +12,7 @@ public class TrainingSheetConverter implements CrudConverter<TrainingSheet, Trai
     @Override
     public TrainingSheetDTO entityForDTO(TrainingSheet entity) {
       
-        return new TrainingSheetDTO(entity.getId(), entity.getType(), entity.getComments());
+        return new TrainingSheetDTO(entity.getId(), entity.getType(), entity.getComments(), null);
     }
 
     @Override

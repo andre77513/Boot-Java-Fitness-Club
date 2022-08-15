@@ -45,7 +45,7 @@ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
             <column name="comments" type="VARCHAR(255)"></column>
 
             <column name="student_id" type="INT">
-                <constraints nullable="false" foreignKeyName="fk_training_sheet_student" referencedTableName="student_id" referencedColumnNames="id"/>
+                <constraints nullable="false" foreignKeyName="fk_training_sheet_student" referencedTableName="student" referencedColumnNames="id"/>
             </column>
         </createTable>
 
