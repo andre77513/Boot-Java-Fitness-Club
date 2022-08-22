@@ -9,11 +9,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class StudentDTO implements Serializable {
-
+public class PersonalDTO implements Serializable{
+    
     private Long id;
     private String name;
     private String cpf;
     private String telephone;
-
 }

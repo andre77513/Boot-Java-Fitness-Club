@@ -10,9 +10,12 @@ public class TrainingSheetService extends CrudService<TrainingSheet, Long> {
 
     @Override
     protected TrainingSheet entityUpdate(TrainingSheet recovered, TrainingSheet entity) {
-        recovered.setType(entity.getType());
+
         recovered.setType(entity.getType());
         recovered.setComments(entity.getComments());
+        recovered.setStudent(entity.getStudent());
+        recovered.setPersonal(entity.getPersonal());
+
         return recovered;
     }
 

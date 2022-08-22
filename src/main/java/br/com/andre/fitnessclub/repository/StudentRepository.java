@@ -13,7 +13,7 @@ public interface StudentRepository extends CrudRepository<Student, Long> {
     @Query(value = "select s from Student s where s.name = :name")
     Student consultByName(@Param("name") String name);
 
-    @Query(value = "select * from Student s where s.name like '%Cardoso' ",nativeQuery = true)
+    @Query(value = "select * from student s where s.name like '%Cardoso' ", nativeQuery = true)
     Student findByNameNative();
 
     Student findByName(String name);

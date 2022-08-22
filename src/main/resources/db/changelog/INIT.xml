@@ -29,15 +29,41 @@ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
     </changeSet>
 
     <changeSet id="2" author="andre">
+        <preConditions onFail="MARK_RAN" onFailMessage="Já existe a tabela personal!">
+            <not>
+                <tableExists tableName="personal" />
+            </not>
+        </preConditions>
+
+        <createTable tableName="personal">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_personal" />
+            </column>
+            <column name="name" type="VARCHAR(30)">
+                <constraints nullable="false" />
+            </column>
+            <column name="cpf" type="VARCHAR(11)">
+                <constraints nullable="false" unique="true" />
+            </column>
+            <column name="telephone" type="VARCHAR(15)">
+                <constraints nullable="false" unique="true" />
+            </column>
+        </createTable>
+
+        <addAutoIncrement tableName="personal" columnName="id" columnDataType="INT" incrementBy="1" startWith="1" />
+
+    </changeSet>
+
+    <changeSet id="3" author="andre">
         <preConditions onFail="MARK_RAN" onFailMessage="Já existe a tabela training_sheet!">
             <not>
-                <tableExists tableName="trainin_gsheet" />
+                <tableExists tableName="training_sheet" />
             </not>
         </preConditions>
 
         <createTable tableName="training_sheet">
             <column name="id" type="INT">
-                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_training_sheet" />
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_tsheet" />
             </column>
             <column name="type" type="VARCHAR(5)">
                 <constraints nullable="false" />
@@ -45,7 +71,10 @@ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
             <column name="comments" type="VARCHAR(255)"></column>
 
             <column name="student_id" type="INT">
-                <constraints nullable="false" foreignKeyName="fk_training_sheet_student" referencedTableName="student" referencedColumnNames="id"/>
+                <constraints nullable="false" foreignKeyName="fk_tsheet_student" referencedTableName="student" referencedColumnNames="id" />
+            </column>
+            <column name="personal_id" type="INT">
+                <constraints nullable="false" foreignKeyName="fk_tsheet_personal" referencedTableName="personal" referencedColumnNames="id" />
             </column>
         </createTable>
 

@@ -16,8 +16,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Student implements CrudEntity<Long>, Serializable{
-
+public class Personal implements CrudEntity<Long>, Serializable{
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,4 +27,5 @@ public class Student implements CrudEntity<Long>, Serializable{
     private String cpf;
 
     private String telephone;
+
 }

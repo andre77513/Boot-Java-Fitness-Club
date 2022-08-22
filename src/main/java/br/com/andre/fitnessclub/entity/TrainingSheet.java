@@ -18,8 +18,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class TrainingSheet implements CrudEntity<Long>, Serializable{
-    
+public class TrainingSheet implements CrudEntity<Long>, Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -29,5 +29,9 @@ public class TrainingSheet implements CrudEntity<Long>, Serializable{
     @ManyToOne
     @JoinColumn(name = "student_id", referencedColumnName = "id", nullable = false)
     private Student student;
+
+    @ManyToOne
+    @JoinColumn(name = "personal_id", referencedColumnName = "id", nullable = false)
+    private Personal personal;
 
 }

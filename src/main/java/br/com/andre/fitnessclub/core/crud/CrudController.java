@@ -32,7 +32,7 @@ public abstract class CrudController<T extends CrudEntity<ID>, D, ID> {
         return ResponseEntity.ok(paginatedList);
     }
 
-    @GetMapping("/lista")
+    @GetMapping("/list")
     public ResponseEntity<List<D>> readAll() {
 
         var dtoList = service.readAll().stream().map(converter::entityForDTO).collect(Collectors.toList());
@@ -51,7 +51,7 @@ public abstract class CrudController<T extends CrudEntity<ID>, D, ID> {
         return ResponseEntity.ok(converter.entityForDTO(entity));
     }
 
-    @PostMapping
+    @PostMapping()
     public ResponseEntity<D> create(@RequestBody D dto) {
 
         var entity = converter.dtoForEntity(dto);

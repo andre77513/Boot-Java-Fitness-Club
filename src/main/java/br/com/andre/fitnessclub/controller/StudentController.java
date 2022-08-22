@@ -1,5 +1,6 @@
 package br.com.andre.fitnessclub.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,14 +17,14 @@ import br.com.andre.fitnessclub.repository.StudentRepository;
 public class StudentController extends CrudController<Student, StudentDTO, Long> {
 
     @Autowired
-    public StudentRepository studentRepository;
+    private StudentRepository studentRepository;
 
     @GetMapping("/n/{name}")
     public Student studentNameHql(@PathVariable("name") String name) {
         return studentRepository.consultByName(name);
     }
 
-    @GetMapping("/student")
+    @GetMapping("/student-like")
     public Student findByNameNative() {
 
         return studentRepository.findByNameNative();
@@ -34,4 +35,5 @@ public class StudentController extends CrudController<Student, StudentDTO, Long>
 
         return studentRepository.findByName(name);
     }
+
 }

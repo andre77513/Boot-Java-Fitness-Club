@@ -5,5 +5,4 @@ public interface CrudConverter<T, D> {
     D entityForDTO(T entity);
 
     T dtoForEntity(D dto);
-
 }
